@@ -1,0 +1,388 @@
+<style>
+    .home{
+        /* color: white; */
+        background-color: #d3d2ee;
+        width: 100%;
+        height: 12%;
+        border-radius: 18px;
+        border-width: 5px;
+        border-color: rgb(158, 132, 244);
+        border-style: solid;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .home:hover{
+        color: black;
+        background-color: rgb(219, 219, 219);
+    }
+
+    .home:active{
+        color: white;
+        background-color: rgb(72, 72, 72);
+    }
+    
+    .homebox{
+        background-color: rgb(158, 132, 244);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+    .main{
+        font-size: 25px;
+        text-align: center;
+    }
+    .container {
+    display: flex;
+    gap: 20px;
+    }
+
+    .bigbox {
+    background-color: rgb(244, 195, 132);
+    padding: 20px;
+    flex: 1;
+    border-radius: 10px;
+    }
+
+    .box1 {
+    background-color: rgb(250, 255, 221);
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    }
+
+    .table {
+      width: 100%;
+      background-color: rgb(244, 195, 132); /* 外框底色 */
+      border: 2px solid rgb(244, 195, 132);
+      border-radius: 10px;
+    }
+
+    .row {
+      display: flex;
+      background-color: #f8fbdc;
+      border-bottom: 3px solid rgb(244, 195, 132);
+      border-radius: 10px;
+    }
+
+    .cell {
+      flex: 1;
+      padding: 20px;
+      font-size: 22px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border-right: 3px solid rgb(244, 195, 132);
+    }
+
+    .cell:last-child {
+      border-right: none;
+    }
+
+    .header .cell {
+      font-weight: bold;
+    }
+
+    .title {
+      flex: 1;
+      font-weight: bold;
+    }
+
+    .bigbox2 {
+    background-color: rgb(124, 183, 242);
+    padding: 20px;
+    flex: 1;
+    border-radius: 10px;
+    }
+
+    .box2 {
+    background-color: #dcfbf8;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    }
+
+    .table2 {
+      width: 100%;
+      background-color: rgb(124, 183, 242); /* 外框底色 */
+      border: 2px solid rgb(124, 183, 242);
+      border-radius: 10px;
+    }
+
+    .row2 {
+      display: flex;
+      background-color: #dcfbf8;
+      border-bottom: 3px solid rgb(124, 183, 242);
+      border-radius: 10px;
+    }
+
+    .cell2 {
+      flex: 1;
+      padding: 20px;
+      font-size: 22px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border-right: 3px solid rgb(124, 183, 242);
+    }
+    .cell2:last-child {
+      border-right: none;
+    }
+
+    .row-header{
+      display: flex;
+      font-weight: bold;
+      background-color: #dcfbf8;
+      border-bottom: 3px solid rgb(124, 183, 242);
+      border-radius: 10px;
+    }
+
+    .title2 {
+      flex: 1;
+      font-weight: bold;
+      border-right: 3px solid rgb(124, 183, 242);
+    }
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>2025日本行-飛機</title>
+</head>
+<body>
+    <h1>0625~0705</h1>
+    <p>這是一段段落文字。</p>
+    <div class="homebox">
+        <button class="home" onclick="location.href='plane.html'">飛機</button><br>
+        <button class="home" onclick="location.href='visa.html'">簽證</button><br>
+        <button class="home" onclick="location.href='schedule0625.html'">行程</button><br>
+        <button class="home" onclick="location.href='live.html'">住宿</button><br>
+        <button class="home" onclick="location.href='map.html'">地圖</button><br>
+        <button class="home" onclick="location.href='translate.html'">翻譯</button><br>
+        <button class="home" onclick="location.href='jap.html'">回首頁</button><br>
+        <button class="home" ></button>
+    </div>
+    <hr>
+
+    <!-- 6/25 -->
+    <h2>6/25(三)去程飛機資訊</h2>
+    <div class="bigbox">    
+        <h3 style="font-size: 25px;">航班資訊</h3>
+
+        <div class="box1">
+            <span style="font-size: 20px; line-height: 1.5;">訂位代號 : JEVHNR</span><br>
+            6/25(三) 虎航 IT216 班機<br>
+            桃園機場 <span style="font-weight: bold;"> → </span> 羽田機場<br>
+            00:10 <span style="margin-left: 69px;"></span> 04:25<br>
+            <span style="font-size: 20px;"> TPE <span style="margin-left: 90px;"></span> HND</span><br>
+            <span style="font-size: 20px;">第一航廈 <span style="margin-left: 55px;"></span> 第三航廈</span><br>
+
+        </div>
+        
+
+        <h3 style="font-size: 25px;">行李</h3>
+        <div class="table">
+            <!-- 第一列：標題列 -->
+            <div class="row header">
+                <div class="cell"></div>
+                <div class="cell">手提行李</div>
+                <div class="cell">托運行李</div>
+            </div>
+        
+            <!-- 第二列：重量 -->
+            <div class="row">
+                <div class="cell title">重量</div>
+                <div class="cell">10kg</div>
+                <div class="cell">20kg</div>
+            </div>
+        
+            <!-- 第三列：件數 -->
+            <div class="row">
+                <div class="cell title">件數</div>
+                <div class="cell">2件</div>
+                <div class="cell">1件</div>
+            </div>
+        
+            <!-- 第四列：大小限制 -->
+            <div class="row">
+                <div class="cell title">大小限制</div>
+                <div class="cell">54×38×23cm</div>
+                <div class="cell">
+                三邊和 203cm 以下<br>最長邊 120cm 以下
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!-- 6/28 -->
+    <!-- <h2>6/28(六)去程飛機資訊</h2>
+    <div class="bigbox">    
+        <h3 style="font-size: 25px;">航班資訊</h3>
+
+        <div class="box1">
+            <span style="font-size: 20px; line-height: 1.5;">訂位代號 : YK6F4C</span><br>
+            6/28(六) 捷星 GK12 班機<br>
+            桃園機場 <span style="font-weight: bold;"> → </span> <span style="color: red; font-weight: bold;">成田機場</span> <br>
+            02:40 <span style="margin-left: 69px;"></span> 07:00<br>
+            <span style="font-size: 20px;"> TPE <span style="margin-left: 90px;"></span> <span style="color: red; font-weight: bold;">NRT</span><br>
+            <span style="font-size: 20px;">第一航廈 <span style="margin-left: 55px;"></span> <span style="color: red; font-weight: bold;">第三航廈</span><br>
+
+        </div>
+        
+
+        <h3 style="font-size: 25px;">行李</h3>
+        <div class="table">
+            
+            <div class="row header">
+                <div class="cell"></div>
+                <div class="cell">手提行李</div>
+                <div class="cell">托運行李</div>
+            </div>
+        
+            
+            <div class="row">
+                <div class="cell title">重量</div>
+                <div class="cell">7kg</div>
+                <div class="cell">20kg</div>
+            </div>
+        
+            
+            <div class="row">
+                <div class="cell title">件數</div>
+                <div class="cell">2件</div>
+                <div class="cell">1件</div>
+            </div>
+        
+            
+            <div class="row">
+                <div class="cell title">大小限制</div>
+                <div class="cell">56×36×23cm</div>
+                <div class="cell">
+                最長邊 100cm 以下<br>(重量可共用)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr> -->
+    <!-- 6/28 -->
+    <h2>6/28(六)去程飛機資訊</h2>
+    <div class="bigbox2">    
+        <h3 style="font-size: 25px;">航班資訊</h3>
+
+        <div class="box2">
+            <span style="font-size: 20px; line-height: 1.5;">訂位代號 : YK6F4C</span><br>
+            6/28(六) 捷星 GK12 班機<br>
+            桃園機場 <span style="font-weight: bold;"> → </span> <span style="color: red; font-weight: bold;">成田機場</span> <br>
+            02:40 <span style="margin-left: 69px;"></span> 07:00<br>
+            <span style="font-size: 20px;"> TPE <span style="margin-left: 90px;"></span> <span style="color: red; font-weight: bold;">NRT</span><br>
+            <span style="font-size: 20px;">第一航廈 <span style="margin-left: 55px;"></span> <span style="color: red; font-weight: bold;">第三航廈</span><br>
+
+        </div>
+        
+
+        <h3 style="font-size: 25px;">行李</h3>
+        <div class="table2">
+            <!-- 第一列：標題列 -->
+            <div class="row-header">
+                <div class="cell2"></div>
+                <div class="cell2">手提行李</div>
+                <div class="cell2">托運行李</div>
+            </div>
+        
+            <!-- 第二列：重量 -->
+            <div class="row2">
+                <div class="cell title2">重量</div>
+                <div class="cell2">7kg</div>
+                <div class="cell2">20kg</div>
+            </div>
+        
+            <!-- 第三列：件數 -->
+            <div class="row2">
+                <div class="cell title2">件數</div>
+                <div class="cell2">2件</div>
+                <div class="cell2">1件</div>
+            </div>
+        
+            <!-- 第四列：大小限制 -->
+            <div class="row2">
+                <div class="cell title2">大小限制</div>
+                <div class="cell2">56×36×23cm</div>
+                <div class="cell2">
+                最長邊 100cm 以下<br>(重量可共用)
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    
+
+    <!-- 7/5 -->
+    <h2>7/5(六)回程飛機資訊</h2>
+    <div class="bigbox">    
+        <h3 style="font-size: 25px;">航班資訊</h3>
+
+        <div class="box1">
+            <span style="font-size: 20px; line-height: 1.5;">訂位代號 : XRG4YR / SC2PEC / 9REG9D</span><br>
+            7/5(六) 樂桃 MM859 班機<br>
+            羽田機場 <span style="font-weight: bold;"> → </span> 桃園機場<br>
+            05:55 <span style="margin-left: 69px;"></span> 08:35<br>
+            <span style="font-size: 20px;"> HND <span style="margin-left: 90px;"></span> TPE<br>
+            <span style="font-size: 20px;">第三航廈 <span style="margin-left: 55px;"></span> 第一航廈<br>
+
+        </div>
+        
+
+        <h3 style="font-size: 25px;">行李</h3>
+        <div class="table">
+            <!-- 第一列：標題列 -->
+            <div class="row header">
+                <div class="cell"></div>
+                <div class="cell">手提行李</div>
+                <div class="cell">托運行李</div>
+            </div>
+        
+            <!-- 第二列：重量 -->
+            <div class="row">
+                <div class="cell title">重量</div>
+                <div class="cell">7kg</div>
+                <div class="cell">20kg</div>
+            </div>
+        
+            <!-- 第三列：件數 -->
+            <div class="row">
+                <div class="cell title">件數</div>
+                <div class="cell">2件</div>
+                <div class="cell">1件</div>
+            </div>
+        
+            <!-- 第四列：大小限制 -->
+            <div class="row">
+                <div class="cell title">大小限制</div>
+                <div class="cell">三邊和 115cm 以下</div>
+                <div class="cell">
+                三邊和 203cm 以下
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+
+</html>
