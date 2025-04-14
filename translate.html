@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>簡易翻譯器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 16px;
+    }
+    select, button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>翻譯器</h2>
+  
+  <label for="sourceText">輸入文字：</label>
+  <textarea id="sourceText" placeholder="請輸入要翻譯的內容..."></textarea>
+  
+  <br>
+  <label for="targetLang">翻譯成：</label>
+  <select id="targetLang">
+    <option value="en">英文</option>
+    <option value="zh-TW">繁體中文</option>
+    <option value="ja">日文</option>
+    <option value="ko">韓文</option>
+    <option value="fr">法文</option>
+    <option value="de">德文</option>
+  </select>
+  
+  <br>
+  <button onclick="translateText()">翻譯</button>
+  
+  <div class="result" id="translatedText"></div>
+
+  <script>
+    async function translateText() {
+      const text = document.getElementById('sourceText').value;
+      const target = document.getElementById('targetLang').value;
+
+      if (!text.trim()) {
+        alert('請輸入要翻譯的文字');
+        return;
+      }
+
+      // 使用 Google Translate API 模擬（需有 API key 實際使用時）
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await response.json();
+      const translated = data[0].map(item => item[0]).join('');
+      document.getElementById('translatedText').innerText = translated;
+    }
+  </script>
+
+</body>
+</html>
