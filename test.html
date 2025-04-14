@@ -5,6 +5,32 @@
         height: 150px;
         shape-image-threshold: inherit;
     }
+
+    .table {
+      width: 100%;
+      background-color: rgb(244, 195, 132); /* 外框底色 */
+      border: 2px solid rgb(244, 195, 132);
+      border-radius: 10px;
+    }
+
+    .row {
+      display: flex;
+      background-color: #f8fbdc;
+      border-bottom: 3px solid rgb(244, 195, 132);
+      border-radius: 10px;
+    }
+
+    .cell {
+      flex: 1;
+      padding: 20px;
+      font-size: 180%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border-right: 3px solid rgb(244, 195, 132);
+    }
 </style>
 
 
@@ -60,4 +86,25 @@
     <input type="submit" value="送出122">
   </form>
   <button class="back" onclick="location.href='jap.html'">回首頁</button><br>
-</html>
+
+  <div class="table">
+    <!-- 第一列：標題列 -->
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell">手提行李</div>
+        <div class="cell">托運行李</div>
+    </div>
+
+    <!-- 第二列：重量 -->
+    <div class="row">
+        <div class="cell title">重量</div>
+        <div class="cell">10kg</div>
+        <div class="cell">20kg</div>
+        <button>48414546</button>
+        <div class="cell">20kg</div>
+    </div>
+
+  </div>
+
+
+  </html>

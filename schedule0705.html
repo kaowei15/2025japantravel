@@ -1,184 +1,145 @@
 <style>
-    .home{
-        background-color: #f3e3e3;
-        width: 100%;
-        height: 12%;
-        border-radius: 18px;
-        border-width: 5px;
-        border-color: rgb(196, 170, 170);
-        border-style: solid;
-        cursor: pointer;
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    .home2{
-        background-color: #f3e3e3;
-        width: 33%;
-        height: 12%;
-        border-radius: 18px;
-        border-width: 5px;
-        border-color: rgb(196, 170, 170);
-        border-style: solid;
-        cursor: pointer;
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    button:hover{
-        color: black;
-        background-color: rgb(219, 219, 219);
-    }
-
-    button:active{
-        color: white;
-        background-color: rgb(72, 72, 72);
-    }
-    
-    .homebox{
-        background-color: rgb(196, 170, 170);
+    body {
+        font-family: Arial, sans-serif;
         padding: 20px;
+        background: #f4f4f4;
+    }
+    .homebox{
+        width: 100%;
+        background-color: rgb(196, 170, 170);
         border-radius: 10px;
     }
 
-    .tab{
-        /* color: white; */
-        background-color:rgb(250, 255, 221);
-        width: 24.65%;
-        height: 16%;
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .grid-container button {
+        padding: 80px 0;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: #f3e3e3;
+        border: none;
         border-radius: 18px;
-        border-style: solid;
-        border-color: rgb(244, 195, 132);
-        border-width: 5px;
         cursor: pointer;
-        font-size: 1.7rem;
-    }
-
-    .tab:active{
-        color: rgb(255, 247, 2);
-        background-color: rgb(72, 72, 72);
-    }
-
-    .intab{
-        /* color: white; */
-        background-color:#b8dca8;
+        transition: background 0.2s;
         width: 100%;
-        height: 10%;
+    }
+
+    .grid-container button:hover {
+        background-color: rgb(149, 119, 151);
+    }
+
+
+    .bigbox{
+        background-color: rgb(244, 195, 132);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .bigbox button{
+        padding: 40px 0;
+        font-size: 25px;
+        font-weight: bold;
+        background-color:rgb(250, 255, 221);
+        border: none;
         border-radius: 18px;
-        border-style: solid;
-        border-color: #8ab966;
-        border-width: 5px;
         cursor: pointer;
-        font-size: 1.7rem;
+        transition: background 0.2s;
+        width: 100%;
     }
 
-    .intab:active{
-        color: rgb(255, 247, 2);
-        background-color: rgb(72, 72, 72);
+    .bigbox button:hover {
+        background-color: #b5a176;
     }
 
-    .container {
-    background-color: rgb(244, 195, 132);
-    display: flex;
-    gap: 20px;
+    .box{
+        padding: 20px;
+        background-color: rgb(250, 255, 221);
+        border-radius: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
     }
 
-    .bigbox {
-    background-color: rgb(244, 195, 132);
-    padding: 20px;
-    flex: 1;
-    border-radius: 10px;
+    .schedulebox{
+        padding: 10px;
+        background-color: #8ab966;
+        border-radius: 10px;
+        font-size: 23px;
     }
 
-    .sch {
-    background-color: #8ab966;
-    padding: 20px;
-    flex: 1;
-    border-radius: 10px;
-    font-size: 23px;
+    .schedulebox button{
+        padding: 40px 0;
+        font-size: 23px;
+        font-weight: bold;
+        background-color:#b8dca8;
+        border: none;
+        border-radius: 18px;
+        cursor: pointer;
+        transition: background 0.2s;
+        width: 100%;
     }
 
-    .box1 {
-    background-color: rgb(250, 255, 221);
-    padding: 20px;
-    font-size: 25px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    flex: 1
-    }
-
-    .box2 {
-    background-color: #b4dca1;
-    padding: 20px;
-    font-size: 25px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    }
-
-    .blankbox {
-    background-color:rgb(244, 195, 132);
-    padding: 20px;
-    font-size: 25px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    flex: 1
+    .schedulebox button:hover {
+        background-color: #96a279;
     }
 
 </style>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>2025日本行-行程表0705</title>
+<meta charset="UTF-8">
+<title>2025日本行-行程表0705</title>
 </head>
 <body>
-    <h1>0625~0705</h1>
-    <p>這是一段段落文字。</p>
-    <div class="homebox">
-        <button class="home2" onclick="location.href='plane.html'">飛機</button>
-        <button class="home2" onclick="location.href='visa.html'">簽證</button>
-        <button class="home2" style="background-color: rgb(149, 119, 151); color: rgb(210, 218, 203);">行程</button><br>
-        <button class="home2" onclick="location.href='live.html'">住宿</button>
-        <button class="home2" onclick="location.href='map.html'">地圖</button>
-        <button class="home2" onclick="location.href='translate.html'">翻譯</button><br>
-        <button class="home2" >&nbsp;</button>
-        <button class="home2" >&nbsp;</button>
-        <button class="home2" >&nbsp;</button><br>
-        <button class="home" onclick="location.href='jap.html'">回首頁</button>
+<h1>行程表 0705</h1>
+<div class="homebox">
+    <div class="grid-container">
+        <button onclick="location.href='plane.html'">飛機</button>
+        <button onclick="location.href='visa.html'">簽證</button>
+        <button onclick="location.href='schedule0625.html'">行程</button>
     </div>
-    <hr>
+    <div class="grid-container">
+        <button onclick="location.href='live.html'">住宿</button>
+        <button onclick="location.href='map.html'">地圖</button>
+        <button onclick="location.href='translate.html'">翻譯</button>
+    </div>
+    <div class="grid-container"><button onclick="location.href='jap.html'">回首頁</button></div>
+</div>
+<hr>
 
-    <div class="bigbox">
-        <!-- 1 -->        
-        <button class="tab" onclick="location.href='schedule0625.html'">6/25 <br> 橫濱<br>&nbsp;</button>        
-        <button class="tab" onclick="location.href='schedule0626.html'">6/26 <br> 鎌倉<br>江之島</button>        
-        <button class="tab" onclick="location.href='schedule0627.html'">6/27 <br> ????<br>????</button>        
-        <button class="tab" onclick="location.href='schedule0628.html'">6/28 <br> 上野<br>淺草</button>        
-        <!-- 2 -->        
-        <button class="tab" onclick="location.href='schedule0629.html'">6/29 <br> ????<br>????</button>        
-        <button class="tab" onclick="location.href='schedule0630.html'">6/30 <br> ????<br>????</button>        
-        <button class="tab" onclick="location.href='schedule0701.html'">7/1 <br> ????<br>????</button>        
-        <button class="tab" onclick="location.href='schedule0702.html'">7/2 <br> ????<br>????</button>        
-        <!-- 3 -->
-        <button class="tab" onclick="location.href='schedule0703.html'">7/3 <br> ????<br>????</button>    
-        <button class="tab" onclick="location.href='schedule0704.html'">7/4 <br> ????<br>????</button>    
+<div class="bigbox">
+    <div class="grid-container">
+        <button class="tab"  onclick="location.href='schedule0625.html'">6/25 <br> 橫濱<br>&nbsp;</button>
+        <button class="tab" onclick="location.href='schedule0626.html'">6/26 <br> 鎌倉<br>江之島</button>
+        <button class="tab" onclick="location.href='schedule0627.html'">6/27 <br> ????<br>????</button>
+        <button class="tab" onclick="location.href='schedule0628.html'">6/28 <br> 上野<br>淺草</button>
+    </div>
+    <div class="grid-container">
+        <button class="tab" onclick="location.href='schedule0629.html'">6/29 <br> ????<br>????</button>
+        <button class="tab" onclick="location.href='schedule0630.html'">6/30 <br> ????<br>????</button>
+        <button class="tab" onclick="location.href='schedule0701.html'">7/1 <br> ????<br>????</button>
+        <button class="tab" onclick="location.href='schedule0702.html'">7/2 <br> ????<br>????</button>
+    </div>
+    <div class="grid-container">
+        <button class="tab" onclick="location.href='schedule0703.html'">7/3 <br> ????<br>????</button>
+        <button class="tab" onclick="location.href='schedule0704.html'">7/4 <br> ????<br>????</button>
         <button class="tab" style="background-color: rgb(222, 115, 57); color: rgb(244, 243, 220);">7/5 <br> 回家<br>&nbsp;</button>
-        
-        
+        <button class="tab" style="background-color: rgb(244, 195, 132);"><br><br>&nbsp;</button>
     </div>
-    <hr>
-    <!-- 內容 -->
-    <div class="sch" style="line-height: 2;">
-        <span style="font-weight: bold;">7/5 (六) 回家</span>
-        <button class="intab" onclick="location.href= 'https://maps.app.goo.gl/Nki1QwKGEJ997bD57'">羽田機場</button>
-    </div>
-    
+</div>
+<hr>
+<!-- 內容 -->
+<div class="schedulebox" style="line-height: 2;">
+    <span style="font-weight: bold;">7/5 (六) 回家</span><br>
+    <div class="grid-container"><button class="intab" onclick="location.href= 'https://maps.app.goo.gl/Nki1QwKGEJ997bD57'">羽田機場</button></button></div>
+</div>
+
 </body>
 
 </html>
