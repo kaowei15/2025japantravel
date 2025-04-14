@@ -1,14 +1,14 @@
 <style>
     .home{
         background-color: rgba(136, 1, 255, 0.061);
-        width: 100%;
-        height: 12%;
+        
         border-radius: 18px;
         border-width: 0px;
         cursor: pointer;
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 12px;
+        display: flex;
     }
 
     button:hover{
@@ -22,9 +22,34 @@
     }
     
     .homebox{
+        width: 100%;
         background-color: rgba(1, 153, 255, 0.151);
-        padding: 20px;
+        
         border-radius: 10px;
+    }
+
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    }
+
+    .grid-container button {
+        padding: 50px 0;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: #68b97b6c;
+        border: none;
+        border-radius: 18px;
+        cursor: pointer;
+        transition: background 0.2s;
+        width: 100%;
+    }
+
+    .grid-container button:hover {
+        background-color: #52805d;
+
     }
 
 </style>
@@ -38,14 +63,11 @@
     <h1>首頁</h1>
     <p style="color: red; font-weight: bold; font-size: 26px;"> 記得帶護照!!!</p>
     <div class="homebox">
-        <button class="home" onclick="location.href='plane.html'">飛機</button><br>
-        <button class="home" onclick="location.href='visa.html'">簽證</button><br>
-        <button class="home" onclick="location.href='schedule0625.html'">行程</button><br>
-        <button class="home" onclick="location.href='live.html'">住宿</button><br>
-        <button class="home" onclick="location.href='map.html'">地圖</button><br>
-        <button class="home" onclick="location.href='translate.html'" style="margin-bottom: 0%;">翻譯</button><br>
+        <div class="grid-container"><button onclick="location.href='plane.html'">飛機</button></div>
+        <div class="grid-container"><button onclick="location.href='visa.html'">簽證</button></div>
+        <div class="grid-container"><button onclick="location.href='schedule0625.html'">行程</button></div>
+        <div class="grid-container"><button onclick="location.href='live.html'">住宿</button></div>
+        <div class="grid-container"><button onclick="location.href='map.html'">地圖</button></div>
+        <div class="grid-container"><button onclick="location.href='translate.html'">翻譯</button></div>
     </div>
 </body>
-
-
-</html>
