@@ -6,7 +6,7 @@
   }
   textarea {
     width: 100%;
-    height: 250px;
+    height: 270px;
     font-size: 35px;
   }
   select{
@@ -115,7 +115,7 @@
     <hr>
     <div class="bigbox">
       <label for="sourceText">輸入文字：</label>
-      <textarea id="sourceText" placeholder="請輸入要翻譯的內容..." style="font-size: 40px;"></textarea>
+      <textarea id="sourceText" placeholder="請輸入要翻譯的內容..." style="font-size: 50px;"></textarea>
       
       <br>
       <label for="targetLang">翻譯成：</label>
@@ -131,7 +131,7 @@
         
         <button class="trans" onclick="translateText()">翻譯</button>
       </div>
-      <div class="result" id="translatedText" style="font-size: 40px;"></div>
+      <div class="result" id="translatedText" style="font-size: 50px; height: 250px;"></div>
 
       <script>
         async function translateText() {
