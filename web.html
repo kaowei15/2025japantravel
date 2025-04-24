@@ -1,163 +1,105 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <title>翻譯工具（拼音＋語音）</title>
+  <meta charset="UTF-8">
+  <title>自訂按鈕配置</title>
   <style>
     body {
-      font-family: sans-serif;
-      padding: 30px;
-      background-color: #f2f2f2;
+      background-color: #fff;
+      margin: 20px;
     }
-    .bigbox {
-      background: #fff;
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      max-width: 800px;
+
+    .page {
+      border: 3px solid black;
+      padding: 20px;
+      width: 420px;
       margin: auto;
     }
-    textarea {
-      width: 100%;
-      height: 150px;
-      font-size: 30px;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      resize: vertical;
-    }
-    .grid-container {
+
+    .content {
+      border: 3px solid orange;
+      padding: 20px;
       display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .green-box {
+      background-color: lightgreen;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .middle-section {
+      display: flex;
+      gap: 10px;
       justify-content: space-between;
-      align-items: center;
-      margin-top: 15px;
     }
-    select {
-      font-size: 25px;
-      padding: 5px 10px;
-    }
-    .trans, .voice {
-      font-size: 22px;
-      padding: 8px 16px;
-      margin-left: 10px;
-      border: none;
-      border-radius: 8px;
-      background-color: #4CAF50;
+
+    .left-button {
+      background-color: #4da6ff;
       color: white;
+      border: none;
+      padding: 40px 20px;
+      border-radius: 20px;
+      width: 50%;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .right-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 45%;
+    }
+
+    .right-buttons button {
+      background-color: #4da6ff;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 8px;
+      font-size: 14px;
       cursor: pointer;
     }
-    .trans:disabled {
-      background-color: #999;
-      cursor: not-allowed;
-    }
-    .result {
-      margin-top: 30px;
-      font-size: 35px;
-      font-weight: bold;
-    }
-    .pinyin {
-      font-size: 25px;
-      color: #666;
-      margin-top: 10px;
-    }
-  </style>
 
-  <!-- JS 字典與轉換模組 -->
-  <script src="https://unpkg.com/wanakana"></script>
-  <script src="https://unpkg.com/pinyin/lib/web-pinyin.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dist/kuromoji.js"></script>
+  </style>
 </head>
 <body>
-  <div class="bigbox">
-    <label for="sourceText">輸入文字：</label>
-    <textarea id="sourceText" placeholder="請輸入要翻譯的內容..."></textarea>
+  <div class="page">
+    <div class="content">
+      <div class="green-box">上方區塊（標題或輸入）</div>
 
-    <label for="targetLang" style="margin-top: 15px; display: block;">翻譯成：</label>
-    <div class="grid-container">
-      <select id="targetLang">
-        <option value="ja">日文</option>
-        <option value="en">英文</option>
-        <option value="zh-TW">繁體中文</option>
-      </select>
-      <button class="trans" onclick="translateText()" disabled>載入中...</button>
-      <button class="voice" onclick="playTTS()">🔊 語音</button>
+      <div class="middle-section">
+        <button class="left-button">左側大按鈕</button>
+        <div class="right-buttons">
+          <button>按鈕一</button>
+          <button>按鈕二</button>
+          <button>按鈕三</button>
+        </div>
+      </div>
+
+      <div class="green-box">下方區塊（輸入欄或訊息）</div>
     </div>
-
-    <div class="result" id="translatedText"></div>
-    <div class="pinyin" id="pinyinText"></div>
   </div>
 
-  <script>
-    let tokenizerReady = false;
-    let tokenizer = null;
 
-    // 載入 kuromoji（日本語分詞器）
-    kuromoji.builder({ dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/" })
-      .build((err, tkz) => {
-        if (err) {
-          console.error("kuromoji 初始化失敗", err);
-        } else {
-          tokenizer = tkz;
-          tokenizerReady = true;
-          console.log("✅ kuromoji 載入完成");
-          const btn = document.querySelector(".trans");
-          btn.disabled = false;
-          btn.innerText = "翻譯";
-        }
-      });
-
-    async function translateText() {
-      const text = document.getElementById('sourceText').value;
-      const target = document.getElementById('targetLang').value;
-
-      if (!text.trim()) {
-        alert('請輸入要翻譯的文字');
-        return;
-      }
-
-      const response = await fetch(
-        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`
-      );
-      const data = await response.json();
-
-      const translated = data[0].map(item => item[0]).join('');
-      document.getElementById('translatedText').innerText = translated;
-
-      // 顯示拼音或羅馬音
-      if (target === 'zh-TW') {
-        const pinyin = window.pinyin(translated, {
-          style: window.pinyin.STYLE_TONE2,
-          heteronym: false
-        }).flat().join(' ');
-        document.getElementById('pinyinText').innerText = `拼音：${pinyin}`;
-      } else if (target === 'ja') {
-        if (!tokenizerReady) {
-          document.getElementById('pinyinText').innerText = '日文拼音模組尚未載入，請稍後再試...';
-          return;
-        }
-
-        const tokens = tokenizer.tokenize(translated);
-        const kana = tokens.map(token => token.reading || token.surface_form).join('');
-        const romaji = wanakana.toRomaji(kana);
-        document.getElementById('pinyinText').innerText = `羅馬音：${romaji}`;
-      } else {
-        document.getElementById('pinyinText').innerText = '';
-      }
-    }
-
-    function playTTS() {
-      const text = document.getElementById('translatedText').innerText;
-      const lang = document.getElementById('targetLang').value;
-
-      if (!text.trim()) {
-        alert('沒有文字可播放');
-        return;
-      }
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang === 'ja' ? 'ja-JP' : (lang === 'zh-TW' ? 'zh-TW' : 'en-US');
-      speechSynthesis.speak(utterance);
-    }
-  </script>
+  <div style="display: flex; height: 300px; border: 1px solid #ccc;">
+    <!-- 左欄 -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <button style="flex: 1;">左按鈕 1</button>
+      <button style="flex: 1;">左按鈕 2</button>
+      <button style="flex: 1;">左按鈕 3</button>
+    </div>
+  
+    <!-- 右欄 -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <button style="flex: 1;">右按鈕 1</button>
+      <button style="flex: 1;">右按鈕 2</button>
+    </div>
+  </div>
+  
 </body>
 </html>
